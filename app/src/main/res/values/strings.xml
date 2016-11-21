@@ -3,6 +3,8 @@
     <string name="title_activity_overview">ActivityOverview</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="splash_screen">Spalsh Screen</string>
+    <string name="log_out">Log Out</string>
     <array name="tabs">
         <item>Home</item>
         <item>Search</item>

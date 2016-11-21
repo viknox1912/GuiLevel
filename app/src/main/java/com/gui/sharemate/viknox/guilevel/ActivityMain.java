@@ -1,19 +1,21 @@
 package com.gui.sharemate.viknox.guilevel;
 
-import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
-
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class ActivityMain extends AppCompatActivity {
+
     SlidingTabLayout mSlidingBar;
     ViewPager mViewPager = null;
     Toolbar mToolbar;
@@ -32,7 +34,35 @@ public class ActivityMain extends AppCompatActivity {
         mSlidingBar.setViewPager(mViewPager);
 
 
+
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater infl = getMenuInflater();
+        infl.inflate(R.menu.menu_activity_overview, menu);
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_splash:
+                Toast.makeText(this, "GO back to splash Screen", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_settings:
+                Toast.makeText(this, "Go to settings", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.action_logout:
+                Toast.makeText(this, "Log out!", Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+        return true;
+    }
+
+
 
     private class MyPageAdapter extends FragmentPagerAdapter {
         String[] tabs;
@@ -48,18 +78,19 @@ public class ActivityMain extends AppCompatActivity {
             if (position == 0) {
                 fragment = new FragmentHome();
 
+
             }
             if (position == 1) {
                 fragment = new FragmentSearch();
 
             }
-            if (position == 2){
+            if (position == 2) {
                 fragment = new FragmentChat();
             }
-            if (position==3){
+            if (position == 3) {
                 fragment = new FragmentGroups();
             }
-            if (position==4){
+            if (position == 4) {
                 fragment = new FragmentSettings();
             }
             return fragment;
